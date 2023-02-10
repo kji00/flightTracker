@@ -21,7 +21,7 @@ Cities.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'prices',
+        modelName: 'cities',
     }
 );
 
