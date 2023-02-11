@@ -1,14 +1,24 @@
 const router = require('express').Router();
-const { User, Cities, Prices } = require('../../models');
+const dayjs = require('dayjs');
+const { User, Cities, Trips, Prices } = require('../../models');
 
-// test get route for city
-router.get('/:id', async (req, res) => {
+// GET route for pricing for flight route
+router.get('/', async (req, res) => {
     try {
-        const citiesData = await Cities.findOne({ where: { city: req.params.id}});
+        const frontget = req.body;
+
+        // get back 5 random prices for leaveDate and 5 random prices for returnDate
+
+
+        return res.json({message: 'request received'});
     }
     catch (err) {
         res.status(500).json(err);
     }
 });
+
+
+// PUT route to save updated trip info to user profile
+// router.put();
 
 module.exports = router;
