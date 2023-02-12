@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const dayjs = require('dayjs');
 const { User, Cities, Trips } = require('../../models');
+const { startRange, endRange } = require('../../utils/dateRange');
+const price = require('../../utils/random');
 
 // GET route for pricing for flight route
 router.get('/', async (req, res) => {
@@ -12,6 +13,11 @@ router.get('/', async (req, res) => {
         const citiesEndCity = await Cities.findOrCreate({ where: {city: qData.endCity.toLowerCase()} });
 
         // send back prices for date range ex: if leaveDate is 05/10/2023 user gets back prices for date range 05/08/2023 - 05/12/2023
+        const startDate = req.body.leaveDate;
+        const endDate = req.body.returnDate;
+        
+        console.log(startDate);
+        console.log(endDate);
 
         return res.json({message: 'find or create'});
     }
