@@ -30,6 +30,4 @@ const datePrice = (startDate, endDate) => {
     return dateAndPrice;
 };
 
-console.log(datePrice("05/10/2023", "05/21/2023"));
-
 module.exports = datePrice;

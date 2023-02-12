@@ -14,12 +14,10 @@ router.get('/', async (req, res) => {
         const startDate = req.body.leaveDate;
         const endDate = req.body.returnDate;
 
-        // send back prices for date range ex: if leaveDate is 05/10/2023 user gets back prices for date range 05/08/2023 - 05/12/2023
-        const x = datePrice(startDate, endDate);
+        // send object back with departing and returning flight dates with pricing
+        const datePriceData = datePrice(startDate, endDate);
 
-        console.log(x);
-
-        return res.json({message: 'find or create'});
+        return res.json(datePriceData);
     }
     catch (err) {
         res.status(500).json(err);
@@ -27,14 +25,11 @@ router.get('/', async (req, res) => {
 });
 
 // POST route for creating new trips
-// router.post('/', async (req, res) => {
-//     try {
+router.post('/', async (req, res) => {
+    const tripData = await Trips.create(req.body);
 
-//     }
-//     catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+    return res.json(tripData);
+});
 
 // PUT route for updating trip info
 // router.put('/', async (req, res) => {
