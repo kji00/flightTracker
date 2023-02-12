@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class Trips extends Model {}
 
-// leaveDatePrices and returnDatePrices will store an array of objects and each object will have a specific date and specific price
+// leaveDateAndPrices and returnDateAndPrices will store an array of objects and each object will have a specific date and specific price
 // ex: leaveDatePrice: [
 //                       { day1 : { date: 05/08/2023, price: 568 }},
 //                       { day2 : { date: 05/09/2023, price: 420 }},
@@ -34,11 +34,11 @@ Trips.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        leaveDatePrices: {
+        leaveDateAndPrices: {
             type: Sequelize.JSON,
             allowNull: false,
         },
-        returnDatePrices: {
+        returnDateAndPrices: {
             type: Sequelize.JSON,
             allowNull: false,
         },

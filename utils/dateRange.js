@@ -1,23 +1,24 @@
-// this helper function gets back a range of dates
+// this helper function returns an array of 5 dates. The range is -2 days from the original date and +2 days from the original day
+
 const dayjs = require('dayjs');
 
-const startRange = (leaveDate) => {
+const dateRange = (date) => {
     const startDateRange = [];
 
     for(let i = 0; i < 5; i++){
     if(i === 0){
-        const subTwo = dayjs(leaveDate).subtract(2, 'day').format('MM/DD/YYYY').toString();
+        const subTwo = dayjs(date).subtract(2, 'day').format('MM/DD/YYYY').toString();
         startDateRange.push(subTwo);
     } if(i === 1){
-        const subOne = dayjs(leaveDate).subtract(1, 'day').format('MM/DD/YYYY').toString();
+        const subOne = dayjs(date).subtract(1, 'day').format('MM/DD/YYYY').toString();
         startDateRange.push(subOne);
     } if(i === 2){
-        startDateRange.push(leaveDate);
+        startDateRange.push(date);
     } if(i === 3){
-        const addOne = dayjs(leaveDate).add(1, 'day').format('MM/DD/YYYY').toString();
+        const addOne = dayjs(date).add(1, 'day').format('MM/DD/YYYY').toString();
         startDateRange.push(addOne);
     } if(i === 4){
-        const addTwo = dayjs(leaveDate).add(2, 'day').format('MM/DD/YYYY').toString();
+        const addTwo = dayjs(date).add(2, 'day').format('MM/DD/YYYY').toString();
         startDateRange.push(addTwo);
     };
     }
@@ -25,33 +26,4 @@ const startRange = (leaveDate) => {
     return startDateRange;
 };
 
-const endRange = (returnDate) => {
-    const endDateRange = [];
-
-    for(let i = 0; i < 5; i++){
-    if(i === 0){
-        const subTwo = dayjs(returnDate).subtract(2, 'day').format('MM/DD/YYYY').toString();
-        endDateRange.push(subTwo);
-    } if(i === 1){
-        const subOne = dayjs(returnDate).subtract(1, 'day').format('MM/DD/YYYY').toString();
-        endDateRange.push(subOne);
-    } if(i === 2){
-        endDateRange.push(returnDate);
-    } if(i === 3){
-        const addOne = dayjs(returnDate).add(1, 'day').format('MM/DD/YYYY').toString();
-        endDateRange.push(addOne);
-    } if(i === 4){
-        const addTwo = dayjs(returnDate).add(2, 'day').format('MM/DD/YYYY').toString();
-        endDateRange.push(addTwo);
-    };
-    }
-
-    return endDateRange;
-};
-
-module.exports = { startRange, endRange };
-
-// test case scenarios
-// console.log(startRange('05/01/2023'));
-
-// console.log(endRange('05/31/2023'));
+module.exports = dateRange;

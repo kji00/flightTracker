@@ -1,4 +1,4 @@
-// Function to generate random number
+// Generate random prices and return it as an array
 const prices = () => {
     const priceArr = [];
     
@@ -9,4 +9,4 @@ const prices = () => {
     return priceArr;
 }
 
-module.exports = prices;
+module.exports = prices();
