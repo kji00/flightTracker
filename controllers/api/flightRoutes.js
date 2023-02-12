@@ -1,24 +1,44 @@
 const router = require('express').Router();
 const dayjs = require('dayjs');
-const { User, Cities, Trips, Prices } = require('../../models');
+const { User, Cities, Trips } = require('../../models');
 
 // GET route for pricing for flight route
 router.get('/', async (req, res) => {
     try {
-        const frontget = req.body;
+        const qData = req.body;
 
-        // get back 5 random prices for leaveDate and 5 random prices for returnDate
+        // check validity of route, if one of the cities doesn't exist add city to cities database
+        const citiesStartCity = await Cities.findOrCreate({ where: {city: qData.startCity.toLowerCase()} });
+        const citiesEndCity = await Cities.findOrCreate({ where: {city: qData.endCity.toLowerCase()} });
 
+        // send back prices for date range ex: if leaveDate is 05/10/2023 user gets back prices for date range 05/08/2023 - 05/12/2023
 
-        return res.json({message: 'request received'});
+        return res.json({message: 'find or create'});
     }
     catch (err) {
         res.status(500).json(err);
     }
 });
 
+// POST route for creating new trips
+// router.post('/', async (req, res) => {
+//     try {
 
-// PUT route to save updated trip info to user profile
-// router.put();
+//     }
+//     catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
+
+// PUT route for updating trip info
+// router.put('/', async (req, res) => {
+//     try {
+
+//     }
+//     catch (err) {
+//         res.status(500).json(err);
+//     }
+// })
+
 
 module.exports = router;
