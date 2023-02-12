@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User, Cities, Trips } = require('../../models');
 const { startRange, endRange } = require('../../utils/dateRange');
-const price = require('../../utils/random');
+const price = require('../../utils/prices');
 
 // GET route for pricing for flight route
 router.get('/', async (req, res) => {
@@ -16,8 +16,7 @@ router.get('/', async (req, res) => {
         const startDate = req.body.leaveDate;
         const endDate = req.body.returnDate;
         
-        console.log(startDate);
-        console.log(endDate);
+
 
         return res.json({message: 'find or create'});
     }
