@@ -36,10 +36,26 @@ router.put('/:tripid', async (req, res) => {
         });
 
         const tripDataUpdate = await Trips.findByPk(req.params.id)
-        
+
         return res.json(tripDataUpdate);
     }
     catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// DELETE route for deleting trip by trip id
+router.delete('/:tripid', async (req, res) => {
+    try {
+        Trips.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+
+        return res.json({ message: 'Trip deleted' })
+    }
+    catch (err){
         res.status(500).json(err);
     }
 });
