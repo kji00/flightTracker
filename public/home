@@ -10,6 +10,9 @@
     <title>Flight Tracker</title>
 </head>
 <body>
+    <nav>
+        <h1>Flight Tracker</h1>
+    </nav>
    
 </body>
 </html>

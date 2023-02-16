@@ -1,21 +1,5 @@
 const router = require('express').Router();
-const { User, Trips } = require('../../models');
-
-// GET
-router.get('/:id', async (req, res) => {
-    try {
-        const userData = await User.findByPk(req.params.id, {
-            attributes: { exclude: ['password'] },
-            include: [{ model: Trips }],
-        });
-
-        console.log(userData);
-
-        return res.json(userData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+const { User } = require('../../models');
 
 // POST route to create a new user
 router.post('/', async (req, res) => {

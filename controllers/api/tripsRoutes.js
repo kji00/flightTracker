@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Cities, Trips } = require('../../models');
+const { Trips } = require('../../models');
 
 
 // GET route for getting trip data via trip id

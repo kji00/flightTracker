@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Cities, Trips } = require('../../models');
+const { Cities } = require('../../models');
 const datePrice = require('../../utils/dateAndPrice');
 
 // GET route for pricing for flight route
