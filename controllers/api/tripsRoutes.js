@@ -3,7 +3,7 @@ const { Trips } = require('../../models');
 
 
 // GET route for getting trip data via trip id
-router.get('/:userid', async (req, res) => {
+router.get('/:tripid', async (req, res) => {
     try {
         const tripData = await Trips.findByPk(req.params.id);
 
@@ -12,10 +12,10 @@ router.get('/:userid', async (req, res) => {
     catch (err) {
         res.status(500).json(err)
     }
-})
+});
 
 // POST route for creating new trips
-router.post('/:userid', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const tripData = await Trips.create(req.body);
 
@@ -27,7 +27,7 @@ router.post('/:userid', async (req, res) => {
 });
 
 // PUT route for updating trip info
-router.put('/:userid', async (req, res) => {
+router.put('/:tripid', async (req, res) => {
     try {
         const tripData = await Trips.update(req.body, {
             where: {
@@ -42,6 +42,6 @@ router.put('/:userid', async (req, res) => {
     catch (err) {
         res.status(500).json(err);
     }
-})
+});
 
 module.exports = router;

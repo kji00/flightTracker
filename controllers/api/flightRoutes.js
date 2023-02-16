@@ -11,8 +11,8 @@ router.get('/', async (req, res) => {
         const citiesStartCity = await Cities.findOrCreate({ where: {city: qData.startCity.toLowerCase()} });
         const citiesEndCity = await Cities.findOrCreate({ where: {city: qData.endCity.toLowerCase()} });
 
-        const startDate = req.body.leaveDate;
-        const endDate = req.body.returnDate;
+        const startDate = qData.leaveDate;
+        const endDate = qData.returnDate;
 
         // send object back with departing and returning flight dates with pricing
         const datePriceData = datePrice(startDate, endDate);
