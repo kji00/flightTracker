@@ -43,16 +43,6 @@ User.init(
                 newUserData.password = await bcrypt.hash(newUserData.password, 10);
                 return newUserData;
             },
-            beforeCreate: async (newUserData) => {
-                // Take user's email address, and making all letters lower case before adding it to the database. This is for good housekeeping.
-                newUserData.email = await newUserData.email.toLowerCase();
-                return newUserData;
-            },
-            // This is the same as creating but for updating a user accounts emails address. Make all letters lower case before adding it to the database. This is for good housekeeping.
-            beforeUpdate: async (updatedUserData) => {
-                updatedUserData.email = await updatedUserData.email.toLowerCase();
-                return updatedUserData;
-            },
         },
         sequelize,
         timestamps: false,
