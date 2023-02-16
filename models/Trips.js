@@ -30,11 +30,11 @@ Trips.init(
             allowNull: false,
         },
         leaveDateAndPrices: {
-            type: Sequelize.JSON,
+            type: DataTypes.JSON,
             allowNull: false,
         },
         returnDateAndPrices: {
-            type: Sequelize.JSON,
+            type: DataTypes.JSON,
             allowNull: false,
         },
         user_id: {

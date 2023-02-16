@@ -9,4 +9,4 @@ const prices = () => {
     return priceArr;
 }
 
-module.exports = prices();
+module.exports = prices;

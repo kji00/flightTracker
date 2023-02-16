@@ -8,8 +8,9 @@ const datePrice = (startDate, endDate) => {
     const departRange = dateRange(startDate);
     const returnRange = dateRange(endDate);
     
-    const departRangePrices = price;
-    const returnRangePrices = price;
+    const departRangePrices = price();
+    const returnRangePrices = price();
+
 
     const departData = datePriceObj(departRange, departRangePrices);
     const returnData = datePriceObj(returnRange, returnRangePrices);
@@ -29,5 +30,6 @@ const datePrice = (startDate, endDate) => {
 
     return dateAndPrice;
 };
+
 
 module.exports = datePrice;
