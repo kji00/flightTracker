@@ -3,7 +3,7 @@ const { Trips } = require('../../models');
 
 
 // GET route for getting trip data via trip id
-router.get('/:tripid', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const tripData = await Trips.findByPk(req.params.id);
 
@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
 });
 
 // PUT route for updating trip info
-router.put('/:tripid', async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
         const tripData = await Trips.update(req.body, {
             where: {
@@ -45,7 +45,7 @@ router.put('/:tripid', async (req, res) => {
 });
 
 // DELETE route for deleting trip by trip id
-router.delete('/:tripid', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         Trips.destroy({
             where: {

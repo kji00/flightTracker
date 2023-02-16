@@ -14,5 +14,4 @@ Trips.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
-
 module.exports = { Cities, Trips, User };
